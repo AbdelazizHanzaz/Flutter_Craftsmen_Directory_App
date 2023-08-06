@@ -1,74 +1,62 @@
-
 # Craftsmen Directory App
 
-This app allows users to search for local skilled craftsmen like carpenters, plumbers, electricians etc. Craftsmen can sign up and create a profile to market their services.
+This app allows users to search for skilled craftsmen like plumbers, carpenters, electricians etc. Craftsmen can create a profile to advertise their services.
 
-## Features
+## Key Features
 
-- Search for craftsmen by name, category/skills, location
-- Craftsmen profiles with details like services offered, experience, portfolio etc
-- Reviews and ratings for craftsmen
-- User accounts to save contacts and bookmarked profiles
+- Search and filter craftsmen by name, skills, and location
+- Craftsmen profiles with contact info, bio, services, and portfolio
+- User reviews and ratings for craftsmen
+- User accounts to save favorites and appointments
 
 ## Architecture
 
-The app is built using:
+The app is built with:
 
 - Flutter for cross-platform UI
-- Firebase Auth for authentication
-- Cloud Firestore for database
+- SQFlite local database 
+- Repository pattern for separation of concerns
 - Provider for state management
 
-## Packages
+## Models
 
-**Core**
+Key data models include:
 
-- flutter_svg: For SVG support 
-- provider: State management
+- **User** - Regular app users
+- **Craftsman** - Craftsmen profiles
+- **Review** - Ratings/reviews left for craftsmen 
+- **ServiceCategory** - Categories of services offered
 
-**UI**
+## Database
 
-- flutter_rating_bar: For ratings UI
-- cached_network_image: For caching images
+The local SQFlite database has tables for:
 
-**Backend** 
+- users
+- craftsmen
+- reviews
+- service_categories
 
-- cloud_firestore: Firebase Firestore
-- firebase_auth: Firebase authentication
-- firebase_storage: For storing files
-- geolocator: For location services
+Foreign keys are used to link related data.
 
-**Utilities**
+## App Flow
 
-- uuid: Generate unique IDs
-- flutter_dotenv: Manage environment variables
+Some core user flows:
 
-See pubspec.yaml for complete list of packages and versions.
+- Search/filter craftsmen
+- View craftsman profile details
+- Register as a craftsman
+- Leave reviews for craftsmen
+- Save/favorite craftsmen
 
-## Database Schema
+## Getting Started
 
-The key tables are:
+To run the app locally:
 
-**Users**
-- id
-- name 
-- email
-- phone
-- is_craftsman
+1. Clone the repository
+2. Run `flutter pub get`
+3. Launch emulator and run `flutter run`
 
-**Craftsmen** 
-- id
-- user_id (foreign key to users table)
-- bio
-- services
-- portfolio
+## Contributing
 
-**Reviews**
-- id  
-- craftsman_id (foreign key to craftsmen table)
-- user_id (foreign key to users table)
-- rating
-- comment
-
-
+Contributions are welcome! Please open an issue or PR.
 
