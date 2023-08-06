@@ -1,0 +1,7 @@
+{
+    "id": 1,
+    "name": "John Doe",
+    "email": "john@doe.com",
+    "phone": "555-1234",
+    "isCraftsman": false 
+  }

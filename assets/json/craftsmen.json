@@ -1,0 +1,12 @@
+{
+    "id": 1,
+    "userId": 2,
+    "bio": "10 years experience as a carpenter",
+    "services": ["Carpentry", "Woodworking", "Cabinetry"],
+    "city": "New York",
+    "state": "NY",
+    "portfolio": [
+      "https://domain/work1.jpg", 
+      "https://domain/work2.jpg"
+    ]
+  }
