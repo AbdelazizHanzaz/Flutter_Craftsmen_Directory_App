@@ -1,5 +1,6 @@
+
 import 'package:craftsmen_directory_app/ui/services/widgets/list_services.dart';
-import 'package:craftsmen_directory_app/ui/services/widgets/service_card.dart';
+import 'package:craftsmen_directory_app/ui/shared_widgets/map_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../../data/models/craftsmen.dart';
@@ -31,12 +32,12 @@ class CraftsmanCard extends StatelessWidget {
                       backgroundColor: Colors.white,
                   //backgroundImage: NetworkImage(craftsman.imageUrl),
                   //child: Icon(Icons.account_circle, color: Colors.blueGrey,),
-                  child: Image.asset("assets/images/profile/profile.png"),
+                  child: Image.asset("assets/images/services/1.png"),
                 ),
-                // const Positioned(
-                //   right: 0,
-                //   bottom: 0,
-                //   child: CraftsmanOnlineIndicator(isOnline: true,))
+                const Positioned(
+                  right: 0,
+                  bottom: 0,
+                  child: CraftsmanOnlineIndicator(isOnline: true,))
                   ],
                 ),
 
@@ -53,36 +54,40 @@ class CraftsmanCard extends StatelessWidget {
                 )
                 ),
 
-                      const Row(
-                        children: [
-                          Icon(Icons.location_on, size: 14),
-                          SizedBox(width: 4),
-                          Text("Home, Freelance")
-                        ],
-                      )
+                      // const Row(
+                      //   children: [
+                      //     Icon(Icons.location_on, size: 14),
+                      //     SizedBox(width: 4),
+                      //     Text("Home, Freelance")
+                      //   ],
+                      // )
+                      const Text("Plumber")
                     ],
                   ),
                 ),
 
 
-                IconButton(
-                  icon: const Icon(Icons.favorite_border_outlined, color: Colors.teal,),
-                  onPressed: () {
-                    // Save favorite
-                  },
-                )
-
+                const Text("5\$/D")
               ],
             ),
           ),
           const Divider(),
           // Content
-          const ListServicesWidget(),
-
+          //const ListServicesWidget(),
+          //IntrinsicWidth(child: Image.asset("assets/images/map.png", fit: BoxFit.cover,)),
+          const SizedBox(
+            height: 200,
+            child: MapWidget(),
+          ),
           // Actions
           Row(
             children: [
-               
+              Expanded(child: IconButton(
+                  icon: const Icon(Icons.favorite_border_outlined, color: Colors.teal,),
+                  onPressed: () {
+                    // Save favorite
+                  },
+                )),
               Expanded(
                 child: IconButton(
                   icon: const Icon(Icons.message_outlined, color: Colors.teal,), 

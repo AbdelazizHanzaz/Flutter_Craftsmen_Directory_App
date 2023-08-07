@@ -3,6 +3,7 @@ import 'package:craftsmen_directory_app/data/provider_states/loading_provider.da
 import 'package:craftsmen_directory_app/data/provider_states/users_provider.dart';
 import 'package:craftsmen_directory_app/ui/craftsmen/screens/craftsmen_screen.dart';
 import 'package:craftsmen_directory_app/ui/craftsmen/screens/users_screen.dart';
+import 'package:craftsmen_directory_app/ui/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -25,11 +26,11 @@ class MyApp extends StatelessWidget {
       title: 'Craftsmen Directory App',
       theme: ThemeData(
         primaryColor: Colors.teal[300],
-        primarySwatch: Colors.teal
-        //colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 3, 115, 104)),
+        primarySwatch: Colors.teal,
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 3, 115, 104)),
         //useMaterial3: true,
       ),
-      home: const CraftsmenScreen(),
+      home: const HomeScreen(),
     );
   }
 }
