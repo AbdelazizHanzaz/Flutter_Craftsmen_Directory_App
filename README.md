@@ -2,6 +2,8 @@
 
 This app allows users to search for skilled craftsmen like plumbers, carpenters, electricians etc. Craftsmen can create a profile to advertise their services.
 
+<img src="screenshots/craftsmen_screen.jpg" alt="Craftsmen Screen" width="300" height="600"/>
+
 ## Key Features
 
 - Search and filter craftsmen by name, skills, and location
