@@ -21,14 +21,15 @@ class JsonService {
   // Load sample craftsmen data
   static Future<List<Craftsman>> getCraftsmen() async {
     final jsonData = await _getJson('craftsmen.json');
-    final list = jsonDecode(jsonData) as List;
-    return list.map((e) => Craftsman.fromJson(e)).toList();
+    final data = jsonDecode(jsonData) as List;
+    List<Craftsman> list = data.map((e) => Craftsman.fromJson(e)).toList();
+    return list;
   }
 
   // Load sample reviews
   static Future<List<Review>> getReviews() async {
-    final jsonData = await _getJson('reviews.json');
-    final list = jsonDecode(jsonData) as List;
+    final jsonString = await _getJson('reviews.json');
+    final list = jsonDecode(jsonString) as List;
     return list.map((r) => Review.fromJson(r)).toList();
   }
 

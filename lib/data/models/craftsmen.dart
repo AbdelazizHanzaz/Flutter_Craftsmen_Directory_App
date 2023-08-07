@@ -22,10 +22,10 @@ class Craftsman {
       id: json["id"], 
       userId: json["userId"], 
       bio: json["bio"], 
-      services: json["services"], 
+      services: List<String>.from(json["services"]), 
       city: json["city"], 
       state: json["state"],  
-      portfolio: json["portfolio"]);
+      portfolio: List<String>.from(json["portfolio"]));
   }
 
   Map<String, dynamic> toJson() {

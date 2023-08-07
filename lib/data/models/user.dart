@@ -19,7 +19,7 @@ class User {
       name: json['name'],
       email: json['email'],
       phone: json['phone'],
-      isCraftsman: json['is_craftsman'] 
+      isCraftsman: json['is_craftsman'] ?? false
     );
   }
 

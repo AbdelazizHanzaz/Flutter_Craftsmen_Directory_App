@@ -1,26 +1,50 @@
-import 'package:craftsmen_directory_app/provider_states/craftsmen_provider.dart';
+import 'dart:developer';
+
+import 'package:craftsmen_directory_app/ui/craftsmen/widgets/cardItem.dart';
+import 'package:craftsmen_directory_app/ui/craftsmen/widgets/craftsmen_list.dart';
+import 'package:craftsmen_directory_app/ui/shared_widgets/filter_content.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class CraftsmenScreen extends StatelessWidget {
   const CraftsmenScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-
-    final craftsmenProvider = Provider.of<CraftsmenProvider>(context, listen: false);
-    craftsmenProvider.loadSampleData();
-
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Craftsmen"),
-        centerTitle: true,
+        actions: [
+          IconButton(
+              onPressed: () => log("search"), icon: const Icon(Icons.search)),
+          IconButton(
+              onPressed: () => log("search"),
+              icon: const Icon(Icons.more_vert)),
+        ],
+        title: const Text(
+          "Craftsmen",
+          style: TextStyle(
+              fontSize: 24,
+              shadows: [Shadow(offset: Offset(2, 3), color: Colors.black45)],
+              fontWeight: FontWeight.bold),
+        ),
       ),
-      body: Center(
-        child: craftsmenProvider.isLoading 
-        ? const CircularProgressIndicator() 
-        : Text("Craftsmen : ${craftsmenProvider.craftsmen.length}"),
-      ),
+      body: NestedScrollView(
+          headerSliverBuilder: (context, val) {
+            return [
+              const SliverAppBar(
+                expandedHeight: 180,
+                collapsedHeight: 170,
+                pinned: false,
+                floating: true,
+                flexibleSpace: FilterWidget(),
+                elevation: 4,
+                // actions: [
+                //   Text("Services listview here")
+
+                // ],
+              )
+            ];
+          },
+          body: const CraftsmenList()),
     );
   }
 }

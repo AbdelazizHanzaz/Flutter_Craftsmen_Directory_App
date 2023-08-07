@@ -1,10 +1,12 @@
 // craftsmen_provider.dart
 
+import 'dart:developer';
+
 import 'package:flutter/foundation.dart';
 
-import '../data/models/craftsmen.dart';
-import '../data/repositories/craftsmen_repository.dart';
-import '../data/services/json_service.dart';
+import '../models/craftsmen.dart';
+import '../repositories/craftsmen_repository.dart';
+import '../services/json_service.dart';
 
 class CraftsmenProvider with ChangeNotifier {
 
@@ -15,6 +17,8 @@ class CraftsmenProvider with ChangeNotifier {
 
   List<Craftsman> get craftsmen => _craftsmen;
   bool get isLoading => _isLoading;
+  
+  
 
   // Fetch craftsmen
   Future fetchCraftsmen() async {
@@ -31,7 +35,7 @@ class CraftsmenProvider with ChangeNotifier {
   Future searchCraftsmen(String query) async {
     _isLoading = true;
     notifyListeners();
-
+    
     _craftsmen = await _repository.searchCraftsmen(query);
     
     _isLoading = false;
@@ -40,12 +44,15 @@ class CraftsmenProvider with ChangeNotifier {
 
   // Load sample data from Json file
   Future loadSampleData() async {
-    _isLoading = true;
-    notifyListeners();
+    // _isLoading = true;
+    //  notifyListeners();
+    Future.delayed(Duration(seconds: 500));
 
     _craftsmen = await JsonService.getCraftsmen();
-
+    log("craftsmen: ${_craftsmen.length}");
     _isLoading = false;
+    log("isLoading: $_isLoading");
+
     notifyListeners();
   }
 
